@@ -1,0 +1,82 @@
+﻿@model Login.Models.Entity.Tbl_Kart
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Tbl_Kart</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Tarih)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Durum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Durum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.İs)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.İs)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Aciklama)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.StatusId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StatusId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.KullaniciId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.KullaniciId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Tbl_Teknik.ProjeAdi)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Tbl_Teknik.ProjeAdi)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.KartId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

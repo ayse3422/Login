@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TeknikKartDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Kart">
+    <Key>
+      <PropertyRef Name="KartId" />
+    </Key>
+    <Property Name="KartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="Durum" Type="nvarchar" MaxLength="250" />
+    <Property Name="İs" Type="nvarchar" MaxLength="250" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="TeknikId" Type="int" />
+    <Property Name="KullaniciId" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Kullanici">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="KullaniciSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="KullaniciSifre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Teknikid" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Start">
+    <Key>
+      <PropertyRef Name="StartId" />
+    </Key>
+    <Property Name="StartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar" MaxLength="50" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+    <Property Name="Tarih" Type="date" />
+    <Property Name="KullaniciId" Type="int" />
+    <Property Name="Turu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Teknik">
+    <Key>
+      <PropertyRef Name="TeknikId" />
+    </Key>
+    <Property Name="TeknikId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tarih" Type="date" />
+    <Property Name="KartNo" Type="int" />
+    <Property Name="ProjeAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="TeknikUzman" Type="nvarchar" MaxLength="50" />
+    <Property Name="TahminiSure" Type="int" />
+    <Property Name="GecenSure" Type="int" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="2500" />
+    <Property Name="Notlar" Type="nvarchar" MaxLength="2500" />
+    <Property Name="KullaniciId" Type="int" />
+  </EntityType>
+  <Association Name="FK_Tbl_Kart_Tbl_Teknik">
+    <End Role="Tbl_Teknik" Type="Self.Tbl_Teknik" Multiplicity="0..1" />
+    <End Role="Tbl_Kart" Type="Self.Tbl_Kart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Teknik">
+        <PropertyRef Name="TeknikId" />
+      </Principal>
+      <Dependent Role="Tbl_Kart">
+        <PropertyRef Name="TeknikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Kullanici_Tbl_Teknik">
+    <End Role="Tbl_Teknik" Type="Self.Tbl_Teknik" Multiplicity="0..1" />
+    <End Role="Tbl_Kullanici" Type="Self.Tbl_Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Teknik">
+        <PropertyRef Name="TeknikId" />
+      </Principal>
+      <Dependent Role="Tbl_Kullanici">
+        <PropertyRef Name="Teknikid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TeknikKartDbModelStoreContainer">
+    <EntitySet Name="Tbl_Kart" EntityType="Self.Tbl_Kart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Kullanici" EntityType="Self.Tbl_Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Start" EntityType="Self.Tbl_Start" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Teknik" EntityType="Self.Tbl_Teknik" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tbl_Kart_Tbl_Teknik" Association="Self.FK_Tbl_Kart_Tbl_Teknik">
+      <End Role="Tbl_Teknik" EntitySet="Tbl_Teknik" />
+      <End Role="Tbl_Kart" EntitySet="Tbl_Kart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Kullanici_Tbl_Teknik" Association="Self.FK_Tbl_Kullanici_Tbl_Teknik">
+      <End Role="Tbl_Teknik" EntitySet="Tbl_Teknik" />
+      <End Role="Tbl_Kullanici" EntitySet="Tbl_Kullanici" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

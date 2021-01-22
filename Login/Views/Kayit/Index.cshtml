@@ -1,0 +1,46 @@
+﻿
+@using Login.Models.Entity;
+@model Tbl_Kullanici
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AnaLayout.cshtml";
+}
+
+@*KAYIT EKRANI*@
+
+<title>Hemen Kayıt Ol!</title>
+
+<div class="main">
+
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <form method="post" id="signup-form" class="signup-form">
+                    <h2 class="form-title">HEMEN KAYIT OL!</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="KullaniciAd" id="name" placeholder="Adınız" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="KullaniciSoyad" id="name" placeholder="Soyadınız" />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-input" name="Email" id="email" placeholder="E-mailiniz" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" name="KullaniciSifre" id="password" placeholder="Şifreniz" />
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" id="submit" class="form-submit" value="Kayıt Ol" />
+                    </div>
+                </form>
+                <p class="loginhere">
+                    Zaten bir hesabınız var mı ? <a href="/Login/Index/" class="loginhere-link">Giriş Yap</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+</div>
+

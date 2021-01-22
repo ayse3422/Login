@@ -1,0 +1,185 @@
+﻿
+@model List<Login.Models.EntityData>
+
+
+@{
+    Layout = null;
+}
+
+@*KARTLAR*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kartlar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        body {
+            font-family: helvetica, arial;
+            font-size: 12px;
+            background: url(../../AddProject/images/back5.jpg);
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .scrumboard {
+            margin: 10px auto;
+            width: 1400px;
+        }
+
+        h1 {
+           margin-left:5px;
+            font-size: 2rem;
+        }
+
+        .column {
+            width: 300px;
+            float: left;
+            border: solid 4px black;
+            height:auto;
+            
+        }
+
+        .portlet {
+            margin: 0 1em 1em 0;
+            padding: 0.3em;
+            margin-left:10px;
+        }
+
+        .portlet-header {
+            padding: 0.2em 0.3em;
+            margin-bottom: 0.5em;
+            position: relative;
+        }
+
+        .portlet-toggle {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -8px;
+        }
+
+        .portlet-content {
+            padding: 0.4em;
+            
+           
+        }
+
+        .portlet-placeholder {
+            border: 1px dotted black;
+            margin: 0 1em 1em 0;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="scrumboard row">
+        <div class="column flex" style="margin-left:20px" id="tod" ondrag="al(event)">
+            <!-- todo -->
+            <h1>Yapılacaklar</h1>
+                <div class="portlet">
+                    <div class="portlet-header">Task</div>
+                    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                    <div class="portlet-header">22.01.2021</div>
+                </div>
+
+                <div class="portlet">
+                    <div class="portlet-header">Task</div>
+                    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                    <div class="portlet-header">22.01.2021</div>
+                </div>
+                <div class="portlet">
+                    <div class="portlet-header">Task</div>
+                    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                    <div class="portlet-header">22.01.2021</div>
+                </div>
+                <div class="portlet">
+                    <div class="portlet-header">Task</div>
+                    <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                    <div class="portlet-header">22.01.2021</div>
+                </div>
+
+            }
+
+
+        </div>
+
+        <div class="column flex" style="margin-left:20px"  id="taskk">
+            <!-- done -->
+            <h1>Başlananlar</h1>
+            <div class="portlet">
+                <div class="portlet-header">Task</div>
+                <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                <div class="portlet-header">22.01.2021</div>
+            </div>
+            <div class="portlet">
+                <div class="portlet-header">Task</div>
+                <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                <div class="portlet-header">22.01.2021</div>
+            </div>
+
+        </div>
+
+        <div class="column flex" style="margin-left:20px">
+            <!-- done -->
+            <h1>Bitenler</h1>
+
+            <div class="portlet">
+                <div class="portlet-header">Task</div>
+                <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                <div class="portlet-header">22.01.2021</div>
+            </div>
+
+            <div class="portlet">
+                <div class="portlet-header">Task</div>
+                <div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+                <div class="portlet-header">22.01.2021</div>
+            </div>
+
+        </div>
+
+        <div class="column flex" style="margin-left:20px" ondragenter="return false" ondragover="return false" ondrop="eylem(event)">
+            <!-- çöp -->
+            <h1>Çöp</h1>
+           
+
+        </div>
+
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src="./script.js"></script>
+
+    <script>
+        $(function () {
+            $(".column").sortable({
+                connectWith: ".column",
+                handle: ".portlet-header",
+                cancel: ".portlet-toggle",
+                placeholder: "portlet-placeholder ui-corner-all"
+            });
+
+            $(".portlet")
+                .addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
+                .find(".portlet-header")
+                .addClass("ui-widget-header ui-corner-all")
+
+
+            $(".portlet-toggle").click(function () {
+                var icon = $(this);
+                icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
+                icon.closest(".portlet").find(".portlet-content").toggle();
+            });
+        });
+        
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Login.Models.Entity.Tbl_Kart>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.İs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KullaniciId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Teknik.ProjeAdi)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Durum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.İs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tbl_Teknik.ProjeAdi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.KartId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.KartId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.KartId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

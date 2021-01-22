@@ -1,0 +1,129 @@
+﻿
+@using Login.Models.Entity;
+@model Tbl_Teknik
+
+@{
+    Layout = null;
+}
+
+
+@*TEKNİK KART*@
+<html>
+<head>
+    <title>Teknik Kart</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/AddProject/slider/assets/css/main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <div class="logo"><a href="index.html"><span>NOT DEFTERİM</span></a></div>
+        <a href="#menu">Menu</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="/Anasayfa/Index/">Anasayfa</a></li>
+            <li><a href="/Login/Index/">Giriş Yap</a></li>
+            <li><a href="/Kullanım/Index">Nasıl Kullanılır?</a></li>
+            <li><a href="/TeknikKart/Index/">Kart Oluştur</a></li>
+        </ul>
+    </nav>
+
+    <!-- One -->
+    <section id="one" class="wrapper style2" style="background: url(../../AddProject/images/back7.jpg);
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-repeat: no-repeat">
+
+        <div class="inner">
+            <div class="container-fluid">
+                <h2 style="text-align:center">TEKNİK KART</h2>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-12">
+                        <div id="ui">
+                            <form class="form-group" method="post" action="/Tablo/Index">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>TARİH:</label>
+                                        <input type="date" name="Tarih" value="" class="form-control" placeholder="Tarih Giriniz." />
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>KART NO:</label>
+                                        <input type="number" name="KartNo" value="" class="form-control" placeholder="Kart No Giriniz." />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>PROJE ADI:</label>
+                                        <input type="text" name="ProjeAdi" value="" class="form-control" placeholder="Proje Adı Giriniz." />
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>TEKNİK UZMAN:</label>
+                                        <input type="text" name="TeknikUzman" value="" class="form-control" placeholder="Teknik Uzman Giriniz." />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>TAHMİNİ SÜRE:</label>
+                                        <input type="number" name="TahminiSure" value="" class="form-control" placeholder="Tahmini Süreyi saat olarak Giriniz." />
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>GEÇEN SÜRE:</label>
+                                        <input type="number" name="GecenSure" value="" class="form-control" placeholder="Geçen Süreyi saat olarak Giriniz." />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label>İŞİN AÇIKLAMASI:</label>
+                                        <textarea name="Aciklama" class="form-control" rows="6" placeholder="Açıklama Giriniz."></textarea>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:10px" class="row">
+                                    <div class="col-lg-12">
+                                        <label>NOTLAR:</label>
+                                        <textarea name="Notlar" class="form-control" rows="6" placeholder="Not Giriniz."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="form-group">
+                                        <a href="/Tablo/Index" /><button type="submit" class="btn btn-lg" style="background-color: #74b9ff">KAYDET</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="#" /><button type="submit" class="btn btn-lg" style="background-color: #d63031">SİL</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="#" /><button type="submit" class="btn btn-lg" style="background-color: #55efc4">GÜNCELLE</button>
+                                    </div>
+                                    
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="~/AddProject/slider/assets/js/jquery.min.js"></script>
+    <script src="~/AddProject/slider/assets/js/jquery.scrollex.min.js"></script>
+    <script src="~/AddProject/slider/assets/js/skel.min.js"></script>
+    <script src="~/AddProject/slider/assets/js/util.js"></script>
+    <script src="~/AddProject/slider/assets/js/main.js"></script>
+</body>
+</html>

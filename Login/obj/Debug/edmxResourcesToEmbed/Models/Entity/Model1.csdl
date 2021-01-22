@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TeknikKartDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tbl_Kart">
+    <Key>
+      <PropertyRef Name="KartId" />
+    </Key>
+    <Property Name="KartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="Durum" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="İs" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="TeknikId" Type="Int32" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <NavigationProperty Name="Tbl_Teknik" Relationship="Self.FK_Tbl_Kart_Tbl_Teknik" FromRole="Tbl_Kart" ToRole="Tbl_Teknik" />
+  </EntityType>
+  <EntityType Name="Tbl_Kullanici">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Teknikid" Type="Int32" />
+    <NavigationProperty Name="Tbl_Teknik" Relationship="Self.FK_Tbl_Kullanici_Tbl_Teknik" FromRole="Tbl_Kullanici" ToRole="Tbl_Teknik" />
+  </EntityType>
+  <EntityType Name="Tbl_Start">
+    <Key>
+      <PropertyRef Name="StartId" />
+    </Key>
+    <Property Name="StartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <Property Name="Turu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tbl_Teknik">
+    <Key>
+      <PropertyRef Name="TeknikId" />
+    </Key>
+    <Property Name="TeknikId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="KartNo" Type="Int32" />
+    <Property Name="ProjeAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TeknikUzman" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TahminiSure" Type="Int32" />
+    <Property Name="GecenSure" Type="Int32" />
+    <Property Name="Aciklama" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="Notlar" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciId" Type="Int32" />
+    <NavigationProperty Name="Tbl_Kart" Relationship="Self.FK_Tbl_Kart_Tbl_Teknik" FromRole="Tbl_Teknik" ToRole="Tbl_Kart" />
+    <NavigationProperty Name="Tbl_Kullanici" Relationship="Self.FK_Tbl_Kullanici_Tbl_Teknik" FromRole="Tbl_Teknik" ToRole="Tbl_Kullanici" />
+  </EntityType>
+  <Association Name="FK_Tbl_Kart_Tbl_Teknik">
+    <End Role="Tbl_Teknik" Type="Self.Tbl_Teknik" Multiplicity="0..1" />
+    <End Role="Tbl_Kart" Type="Self.Tbl_Kart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Teknik">
+        <PropertyRef Name="TeknikId" />
+      </Principal>
+      <Dependent Role="Tbl_Kart">
+        <PropertyRef Name="TeknikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Kullanici_Tbl_Teknik">
+    <End Role="Tbl_Teknik" Type="Self.Tbl_Teknik" Multiplicity="0..1" />
+    <End Role="Tbl_Kullanici" Type="Self.Tbl_Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Teknik">
+        <PropertyRef Name="TeknikId" />
+      </Principal>
+      <Dependent Role="Tbl_Kullanici">
+        <PropertyRef Name="Teknikid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TeknikKartDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tbl_Kart" EntityType="Self.Tbl_Kart" />
+    <EntitySet Name="Tbl_Kullanici" EntityType="Self.Tbl_Kullanici" />
+    <EntitySet Name="Tbl_Start" EntityType="Self.Tbl_Start" />
+    <EntitySet Name="Tbl_Teknik" EntityType="Self.Tbl_Teknik" />
+    <AssociationSet Name="FK_Tbl_Kart_Tbl_Teknik" Association="Self.FK_Tbl_Kart_Tbl_Teknik">
+      <End Role="Tbl_Teknik" EntitySet="Tbl_Teknik" />
+      <End Role="Tbl_Kart" EntitySet="Tbl_Kart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Kullanici_Tbl_Teknik" Association="Self.FK_Tbl_Kullanici_Tbl_Teknik">
+      <End Role="Tbl_Teknik" EntitySet="Tbl_Teknik" />
+      <End Role="Tbl_Kullanici" EntitySet="Tbl_Kullanici" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
