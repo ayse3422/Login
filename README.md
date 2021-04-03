@@ -21,3 +21,7 @@ Burada notumuzun özelliklerini oluşturuyoruz.
 Burada ise işlerimizi ekliyoruz, güncelliyoruz ve siliyoruz.
 
 ![Ekran görüntüsü 2021-04-03 125122](https://user-images.githubusercontent.com/61933224/113478468-a12a3a00-9491-11eb-9756-b856942c3fae.png)
+
+Son olarakta dragdrob ile oluşturduğumuz işleri sürükle bırak ile yerlerini değiştirebiliriz.
+
+![Ekran görüntüsü 2021-04-03 125207](https://user-images.githubusercontent.com/61933224/113478495-c3bc5300-9491-11eb-8207-36f6588d17e5.png)
