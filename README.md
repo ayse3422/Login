@@ -14,3 +14,7 @@ Giriş yaptıktan sonra bizi anasayfamız karşılıyor.
 
 ![Ekran görüntüsü 2021-04-03 125025](https://user-images.githubusercontent.com/61933224/113478404-4ee91900-9491-11eb-9bad-5b756a338ec4.png)
 
+Burada notumuzun özelliklerini oluşturuyoruz.
+
+![Ekran görüntüsü 2021-04-03 125043](https://user-images.githubusercontent.com/61933224/113478419-66280680-9491-11eb-8fb9-42e27a173214.png)
+
