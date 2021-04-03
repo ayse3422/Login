@@ -18,3 +18,6 @@ Burada notumuzun özelliklerini oluşturuyoruz.
 
 ![Ekran görüntüsü 2021-04-03 125043](https://user-images.githubusercontent.com/61933224/113478419-66280680-9491-11eb-8fb9-42e27a173214.png)
 
+Burada ise işlerimizi ekliyoruz, güncelliyoruz ve siliyoruz.
+
+![Ekran görüntüsü 2021-04-03 125122](https://user-images.githubusercontent.com/61933224/113478468-a12a3a00-9491-11eb-9756-b856942c3fae.png)
