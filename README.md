@@ -11,3 +11,6 @@ Buradan girişimizi sağlıyoruz.
 Giriş yaptıktan sonra bizi anasayfamız karşılıyor.
 
 ![Ekran görüntüsü 2021-04-03 124900](https://user-images.githubusercontent.com/61933224/113478362-147f7c00-9491-11eb-82a1-a9e96c3ff911.png)
+
+![Ekran görüntüsü 2021-04-03 125025](https://user-images.githubusercontent.com/61933224/113478404-4ee91900-9491-11eb-9bad-5b756a338ec4.png)
+
